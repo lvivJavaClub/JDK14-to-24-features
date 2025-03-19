@@ -9,8 +9,18 @@ public class MarkdownApp {
   }
 
   /**
-   * This method calculates the area of a circle given the radius.
+   * Calculates the area of a circle given the radius.
    * <p>
+   * <strong>Note:</strong> This method uses the formula &pi; &times; r<sup>2</sup>.
+   * <p>
+   * <table border="1">
+   *   <caption>Sample Radii and Areas</caption>
+   *   <tr><th>Radius</th><th>Area</th></tr>
+   *   <tr><td>1.0</td><td>3.1416</td></tr>
+   *   <tr><td>2.0</td><td>12.5664</td></tr>
+   *   <tr><td>3.0</td><td>28.2743</td></tr>
+   * </table>
+   *
    * Example usage:
    * <pre>{@code
    * double area = calculateCircleArea(5.0);
@@ -28,7 +38,15 @@ public class MarkdownApp {
     return Math.PI * radius * radius;
   }
 
-  /// This method calculates the area of a circle given the radius.
+  /// Calculates the area of a circle given the radius.
+  ///
+  /// **Note:** This method uses the formula π × r².
+  ///
+  /// | Radius | Area     |
+  /// |--------|----------|
+  /// | 1.0    | 3.1416   |
+  /// | 2.0    | 12.5664  |
+  /// | 3.0    | 28.2743  |
   ///
   /// Example usage:
   ///

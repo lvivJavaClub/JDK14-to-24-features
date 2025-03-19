@@ -57,9 +57,9 @@ public class StringTemplatesApp {
 
   private static void formerConcatenationSolution() {
     var language = "Java";
-    var eventType = "JavaClub";
+    var eventType = "CoffeeJUG";
 
-    var greeting1 = "Hello " + language + "community! Welcome to " + eventType + "event!";
+    var greeting = STR."Hello \{language} community! Welcome to \{eventType} event!";
     // 2. StringBuffer and StringBuilder
     var greeting2 = new StringBuilder()
         .append("Hello ").append(language)

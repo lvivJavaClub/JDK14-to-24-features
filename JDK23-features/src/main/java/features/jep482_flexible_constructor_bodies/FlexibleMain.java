@@ -1,11 +1,9 @@
 package features.jep482_flexible_constructor_bodies;
 
-import java.time.LocalDate;
-
 public class FlexibleMain {
 
   public static void main(String[] args) {
-    var bankTransfer = new BankTransfer("1234", 1000.0, LocalDate.now().minusDays(10), "Somebody22", "Somebody22");
+    var bankTransfer = new BankTransfer("1234", 1000.0, "Somebody22", "Somebody33");
     System.out.println(bankTransfer.receiverBankAccount);
     System.out.println(bankTransfer.senderBankAccount);
 
@@ -14,27 +12,25 @@ public class FlexibleMain {
   public static class Transaction {
     private final String transactionId;
     private final double amount;
-    private final LocalDate date;
 
-    public Transaction(String transactionId, double amount, LocalDate date) {
+    public Transaction(String transactionId, double amount) {
+      validate();
       this.transactionId = transactionId;
       this.amount = amount;
-      this.date = date;
-      validate();
     }
 
     protected void validate() {
       if (amount <= 0) throw new IllegalArgumentException("Amount must be positive.");
       if (transactionId == null || transactionId.isEmpty()) throw new IllegalArgumentException("Transaction ID cannot be null or empty.");
-      if (date == null || date.isAfter(LocalDate.now())) throw new IllegalArgumentException("Date could not be null or in the future.");
     }
   }
+
+
 
   public static class BankTransfer extends Transaction {
     private final String senderBankAccount;
     private final String receiverBankAccount;
 
-    // Auxiliary method to validate bank accounts
     private static String validateBankAccount(String account) {
       if (account == null || account.length() != 10) {
         throw new IllegalArgumentException("Invalid bank account.");
@@ -43,10 +39,10 @@ public class FlexibleMain {
     }
 
     // Constructor uses auxiliary method to prepare arguments for superclass constructor
-    public BankTransfer(String transactionId, double amount, LocalDate date, String sender, String receiver) {
+    public BankTransfer(String transactionId, double amount, String sender, String receiver) {
       this.senderBankAccount = validateBankAccount(sender);
       this.receiverBankAccount = validateBankAccount(receiver);
-      super(transactionId, amount, date);
+      super(transactionId, amount);
     }
 
     @Override

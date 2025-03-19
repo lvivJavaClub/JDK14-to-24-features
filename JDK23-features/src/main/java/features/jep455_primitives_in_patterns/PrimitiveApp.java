@@ -8,12 +8,14 @@ public class PrimitiveApp {
     handleErrorCode(errorCode);
 
     // 2. Enhanced Support for Primitive Types in Record Patterns
-    TransactionRecord transaction = new TransactionRecord("TX123", 1.0, TransactionType.CREDIT);
-    processTransaction(transaction);
+    TransactionRecord transaction1 = new TransactionRecord("TX123", 100.5d, TransactionType.CREDIT);
+    processTransaction(transaction1);
+    TransactionRecord transaction2 = new TransactionRecord("TX124", 15, TransactionType.DEBIT);
+    processTransaction(transaction2);
 
     // 3. Pattern Matching for instanceof Supports Primitive Types
     double rawSensorData = getSensorData();
-    processSensorData(rawSensorData);
+    processSensorData(100);
 
     // 4. Expanded Primitive Support in switch
     double purchaseAmount = 5000.50;
@@ -25,12 +27,14 @@ public class PrimitiveApp {
 
   // Example 1: Pattern Matching for switch Supports Primitive Type Patterns
   public static void handleErrorCode(int errorCode) {
-    // Before JEP 455
+    // After JEP 455
     String message = switch (errorCode) {
       case 404 -> "Resource not found";
       case 500 -> "Internal server error";
       case 200 -> "Operation successful";
-      case byte b -> "Unknown error code BYTE: " + b;
+      // Using a guarded pattern to handle a range of known error codes
+      case int i when i >= 400 && i < 500 -> "Client error with code: " + i;
+      case int i when i >= 500 && i < 600 -> "Server error with code: " + i;
       case int i -> "Unknown error code: " + i;
     };
     System.out.println("Error message: " + message);
@@ -46,40 +50,41 @@ public class PrimitiveApp {
     System.out.println("Error message: " + message);*/
   }
 
-  // Example 2: Enhanced Support for Primitive Types in Record Patterns
+  // After JEP 455
   public static void processTransaction(TransactionRecord transaction) {
-    // Before JEP 455
-
-    if (transaction instanceof TransactionRecord(var id, int amount, var type)) {
-      System.out.println("its byte");
+    if (transaction instanceof TransactionRecord(_, byte amount, _)) {
+      System.out.println("its double amount");
+    } else if (transaction instanceof TransactionRecord(_, int amount, _)) {
+      System.out.println("its int amount");
+    } else if (transaction instanceof TransactionRecord(var id, double amount, var type)) {
+      System.out.println("its double amount " + amount);
     }
-
   }
 
   // Example 3: Pattern Matching for instanceof Supports Primitive Types
   public static void processSensorData(double sensorValue) {
-    // Before JEP 455
+    // After JEP 455
     if ((int) sensorValue == sensorValue) {
       int intValue = (int) sensorValue;
       System.out.println("Sensor data is an integer value: " + intValue);
     } else if ((float) sensorValue == sensorValue) {
       float floatValue = (float) sensorValue;
       System.out.println("Sensor data is a float value: " + floatValue);
+    } else if (sensorValue >= -128 && sensorValue < 127) {
+      byte byteValue = (byte) sensorValue;
+      System.out.println("Sensor data is an byte value: " + byteValue);
     } else {
       System.out.println("Sensor data is a double value: " + sensorValue);
     }
 
-    // Simulating processing of sensor data that could come in various types
-    if (sensorValue instanceof int intValue) {
-      System.out.println("Sensor data is an integer value: " + intValue);
-      // Perform integer-specific processing
-    } else if (sensorValue instanceof float floatValue) {
-      System.out.println("Sensor data is a float value: " + floatValue);
-      // Perform float-specific processing
-    } else {
-      System.out.println("Sensor data is a double value: " + sensorValue);
-      // Handle as double
-    }
+   /* // After JEP 455
+    switch (sensorValue) {
+      case long l -> System.out.println("Sensor data is a float value: " + l);
+      case byte byteValue -> System.out.println("Sensor data is a byte value: " + byteValue);
+      case int intValue -> System.out.println("Sensor data is an integer value: " + intValue);
+      case float floatValue -> System.out.println("Sensor data is a float value: " + floatValue);
+      default -> System.out.println("Sensor data is a double value: " + sensorValue);
+    }*/
   }
 
   // Example 4.1: Expanded Primitive Support in switch for double
@@ -99,10 +104,9 @@ public class PrimitiveApp {
   // Example 4.2: Expanded Primitive Support in switch for boolean
   public static void handleFeatureToggle(boolean featureEnabled) {
 
-    switch (featureEnabled){
+    switch (featureEnabled) {
       case true -> System.out.println("Feature is enabled.");
       case false -> {
-        System.out.println("Feature is enabled.");
         System.out.println("Feature is disabled.");
       }
     }
@@ -127,11 +131,8 @@ public class PrimitiveApp {
     return true; // Simulating a feature toggle state
   }
 
-  public record TransactionRecord(String id, double amount, TransactionType type) {
-  }
+  public record TransactionRecord(String id, double amount, TransactionType type) {}
 
-  enum TransactionType {
-    DEBIT, CREDIT
-  }
+  enum TransactionType {DEBIT, CREDIT}
 }
 

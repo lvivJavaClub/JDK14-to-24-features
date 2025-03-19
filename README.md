@@ -1,4 +1,4 @@
-# JDK14-15-16-17-18-19-20-21-22-23-features
+# JDK14-15-16-17-18-19-20-21-22-23-24-features
 
 ## Prepare
 
@@ -19,3 +19,4 @@ sdk use java {version}-open
 * Link to JDK21 features https://openjdk.java.net/projects/jdk/21/
 * Link to JDK22 features https://openjdk.java.net/projects/jdk/22/
 * Link to JDK23 features https://openjdk.java.net/projects/jdk/23/
+* Link to JDK24 features https://openjdk.java.net/projects/jdk/24/

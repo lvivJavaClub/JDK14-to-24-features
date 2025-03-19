@@ -3,13 +3,15 @@ package features.jep_476_module_import;
 import module java.base;
 import module java.sql;
 
+import java.util.Date;
 
-// 1. Module Import Declarations
-// 2. Ambiguous Imports?
 
 public class ModuleApp {
   public static void main(String[] args) {
+    var now = new Date();
 
+
+    record Employee(String name, String department, int salary) {}
     List<Employee> employees = List.of(
         new Employee("Alice", "HR", 70000),
         new Employee("Bob", "IT", 90000),
@@ -17,27 +19,14 @@ public class ModuleApp {
         new Employee("David", "IT", 80000)
     );
 
-    // Group employees by department
-    Map<String, List<Employee>> employeesByDept = employees.stream()
-        .collect(Collectors.groupingBy(Employee::department));
-
-    System.out.println("Employees grouped by department: " + employeesByDept);
-
-    // Find the highest-paid employee
-    Employee highestPaidEmployee = employees.stream()
-        .max(Comparator.comparingInt(Employee::salary))
-        .orElse(null);
-
-    System.out.println("Highest-paid employee: " + highestPaidEmployee);
-
-    // Create a report of employees' names and salaries
     Function<Employee, String> reportMapper = e -> e.name() + ": $" + e.salary();
-    List<String> employeeReport = employees.stream()
-        .map(reportMapper)
-        .collect(Collectors.toList());
 
-    System.out.println("Employee Report: " + employeeReport);
+    Map<String, List<String>> employeesReportByDept = employees.stream()
+        .sorted(Comparator.comparingInt(Employee::salary).reversed())
+        .collect(Collectors.groupingBy(
+            Employee::department,
+            Collectors.mapping(reportMapper, Collectors.toList()))
+        );
   }
 }
 
-record Employee(String name, String department, int salary) {}

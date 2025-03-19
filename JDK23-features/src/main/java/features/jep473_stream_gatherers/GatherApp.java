@@ -32,7 +32,6 @@ public class GatherApp {
   // Example of using the windowFixed gatherer
   public void windowFixedExample() {
     Stream<Integer> numbers = Stream.of(1, 2, 3, 4, 5, 6, 7, 8);
-
     // Group elements into fixed-size windows of size 3
     List<List<Integer>> result = numbers.gather(Gatherers.windowFixed(3)).toList();
 
