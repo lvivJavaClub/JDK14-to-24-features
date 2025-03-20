@@ -9,18 +9,18 @@ public class StructuredApp {
 
   public static void main(String[] args) throws Exception {
 
-    executorSolution();
+    // executorSolution();
     structuredSolution();
   }
 
   private static void structuredSolution() throws ExecutionException, InterruptedException {
-    try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+    try (var scope = new StructuredTaskScope.ShutdownOnSuccess<>()) {
       // Fork two subtasks
       Subtask<String> weatherTask = scope.fork(() -> fetchWeather("Lviv"));
       Subtask<String> newsTask = scope.fork(() -> fetchNews("Technology"));
 
       // Wait for both subtasks to complete and Propagate errors if any
-      scope.join().throwIfFailed();           // Wait for both subtasks to complete and Propagate errors if any
+      scope.join();          // Wait for both subtasks to complete and Propagate errors if any
 
       // Retrieve results
       String weather = weatherTask.get();

@@ -13,7 +13,6 @@ public class GathererApp {
         .gather(Gatherer.of((_, element, downstream) -> {
           return downstream.push(element * element);
         }))
-        .limit(2)
         .toList();
 
     System.out.println(result);

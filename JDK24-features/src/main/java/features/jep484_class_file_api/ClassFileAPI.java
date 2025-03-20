@@ -49,6 +49,7 @@ public class ClassFileAPI {
         }
       }
     });
+
     Files.write(Path.of("target/classes/features/jep484_class_file_api/Employee.class"), modifiedBytes);
     System.out.println("Class modified with simple logging!");
   }

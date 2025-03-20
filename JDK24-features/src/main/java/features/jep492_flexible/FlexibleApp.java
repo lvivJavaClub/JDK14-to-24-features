@@ -8,13 +8,16 @@ public class FlexibleApp {
   }
 
   public static class DebugLogger extends Logger {
+    static String CONS = "c";
     public DebugLogger(boolean verbose) {
-      String prefix = verbose ? "[DEBUG-VERBOSE]" : "[DEBUG]";
+      String prefix = verbose ? "[DEBUG-VERBOSE]" : "[DEBUG]" + CONS2;
       super(prefix);  // ✅ Can now compute `super()` arguments inside constructor
     }
   }
 
   static class Logger {
+    protected static String CONS2 = "c";
+
     protected final String prefix;
 
     Logger(String prefix) {
