@@ -10,9 +10,9 @@ public class GathererApp {
     var numbers = List.of(1, 2, 3, 4, 5);
 
     var result = numbers.stream()
-        .gather(Gatherer.of(Gatherer.Integrator.ofGreedy((_, element, downstream) -> {
+        .gather(Gatherer.of((_, element, downstream) -> {
           return downstream.push(element * element);
-        })))
+        }))
         .limit(2)
         .toList();
 

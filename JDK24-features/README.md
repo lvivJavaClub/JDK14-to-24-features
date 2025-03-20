@@ -90,6 +90,28 @@ For a complete list of all new features, visit the [OpenJDK JDK 24 Project Page]
 - #### More concise and expressive API compared to traditional visitor-based approaches. 
 - #### Immutable class-file entities (fields, methods, attributes, bytecode) and Lazy parsing – processes only necessary parts of the class file.. 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## 📍 **Stream Gatherers API (JEP 485)**
 
 - ####  A custom intermediate operation that allows fine-grained transformations in stream pipelines.
@@ -103,65 +125,616 @@ A Gatherer has:
 - **Combiner** (optional) → Merges results for parallel streams.
 - **Finisher** → Performs final cleanup and output.
 
-
 Useful libraries that provide `Gatherer` implementations for the Stream API:
 
 - #### https://github.com/jhspetersson/packrat
 - #### https://github.com/tginsberg/gatherers4j?tab=readme-ov-file
 - #### https://github.com/pivovarit/more-gatherers
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 # `😉 Further features iterations:`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## 📍 **Scoped Values (Fourth Preview) (JEP 487)**
 
-## 📍 **Primitive Types in Patterns, instanceof, and switch (Second Preview) (JEP 488)**
+- ####  Better alternative to `ThreadLocal`, designed for virtual threads and structured concurrency
+- #### Immutable, structured, and memory-efficient (no leaks!)
 
-## 📍 **Vector API (Ninth Incubator) (JEP 489)**
-
-## 📍 **Synchronize Virtual Threads without Pinning (JEP 491)**
-
-## 📍 **Flexible Constructor Bodies (Third Preview) (JEP 492)**
-
-## 📍 **Module Import Declarations (Second Preview) (JEP 494)**
-
-## 📍 **Simple Source Files and Instance Main Methods (Fourth Preview) (JEP 495)**
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## 📍 **Structured Concurrency (Fourth Preview) (JEP 499)**
 
+Structured Concurrency treats related tasks as a unit of work, meaning:
+
+- #### Tasks start together, complete together, and fail together.
+- #### Errors & cancellations are handled at the parent level.
+- #### Eliminates thread leaks (no orphaned tasks running indefinitely).
+- #### Improves observability (easy to see task relationships in logs & thread dumps).
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 📍 **Primitive Types in Patterns, instanceof, and switch (Second Preview) (JEP 488)**
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 📍 **Vector API (Ninth Incubator) (JEP 489)**
+
+#### The Vector API will keep incubating until necessary features of Project Valhalla become available as preview features. When that happens, the Vector API will be adapted to use them, and it will be promoted from incubation to preview.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 📍 **Synchronize Virtual Threads without Pinning (JEP 491)**
+
+- #### Virtual threads no longer pin platform (OS) threads in synchronized methods.
+- #### Virtual threads now unmount properly, allowing multiple virtual threads to run in parallel.
+- #### Makes virtual threads scale properly, fixing synchronization issues
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 📍 **Flexible Constructor Bodies (Third Preview) (JEP 492)**
+
+- #### Allows argument validation before calling super()
+- #### Reduces reliance on helper methods or intermediate constructors
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 📍 **Simple Source Files and Instance Main Methods (Fourth Preview) (JEP 495)**
+## 📍 **Module Import Declarations (Second Preview) (JEP 494)**
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 # `🆕 What's new:`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## 📍 **Generational Shenandoah (Experimental) (JEP 404)**
 
+The Shenandoah garbage collector is an ultra-low pause time garbage collector. It has been available for production use since Java 15 and has been designed to dramatically reduce garbage collection pause times, regardless of the heap size that is used.
+
+JEP 404 makes Shenandoah generational, meaning:
+- #### Young Generation: Short-lived objects (frequent minor collections).
+- ####  Old Generation: Long-lived objects (infrequent major collections).
+- ####  Less frequent full-heap scans → Lower GC overhead.
+
+``java ... -XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGCMode=generational``
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## 📍 **Compact Object Headers (Experimental) (JEP 450)**
+
+- #### Goal is to the size of Java object headers on 64-bit architectures (from 128 bits to 64 bits or less)
+
+Can be enabled as follows:
+
+``java -XX:+UnlockExperimentalVMOptions -XX:+UseCompactObjectHeaders MyApp
+``
+
+The plan is to enable it by default in future releases.
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## 📍 **Late Barrier Expansion for G1 (JEP 475)*
 
-## 📍 **Key Derivation Function API (Preview) (JEP 478)**
+The G1 (Garbage-First) GC relies on write barriers to track memory changes.
+
+`Before JEP 475:` Write barriers were expanded early in the JIT compilation phase, increasing compiled code size.
+
+`After JEP 475:` The JIT delays expanding write barriers until late in compilation, reducing overhead. 
+
+- #### Smaller compiled code size → Less JIT compilation time.
+- #### Faster execution → Better CPU cache efficiency.
+- #### Lower memory usage → Smaller compiled code footprint.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## 📍 **Ahead-of-Time Class Loading & Linking (JEP 483)**
 
+- #### With AOT class loading & linking, the JVM can pre-load and pre-link classes before execution, making applications start faster.
+
+1. Run the application once in "record" mode to capture class loading information: \
+ ``java -XX:AOTMode=record -XX:AOTConfiguration=app.aotconf -cp app.jar com.example.App ...
+``
+
+2. Create the AOT cache from the recorded configuration:\
+   ``java -XX:AOTMode=create -XX:AOTConfiguration=app.aotconf -XX:AOTCache=app.aot -cp app.jar
+``
+
+3. Run the application using the AOT cache (faster startup):\
+ ``java -XX:AOTCache=app.aot -cp app.jar com.example.App ...
+``
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## 📍 **Linking Run-Time Images without JMODs (JEP 493)**
 
-## 📍 **Quantum-Resistant Module-Lattice-Based Key Encapsulation Mechanism (JEP 496)**
+- #### The option `--enable-linkable-runtime` builds a JDK whose jlink tool can create run-time images without using JMOD files.
+- #### Reduces JDK size (~25%)
+- #### Works seamlessly with modular JARs & custom runtime images.
 
+**`Not enabled by default`**\
+The default build configuration will remain as it is today: The resulting JDK will contain JMOD files and its jlink tool will not be able to operate without them. Whether the JDK build that you get from your preferred vendor contains this feature is up to that vendor.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 📍 **Key Derivation Function API (Preview) (JEP 478)**
+## 📍 **Quantum-Resistant Module-Lattice-Based Key Encapsulation Mechanism (JEP 496)**
 ## 📍 **Quantum-Resistant Module-Lattice-Based Digital Signature Algorithm (JEP 497)**
+
+### These JEPs future-proof Java’s security before quantum computers become a real-world threat.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 # `🚫🙅‍♂️ Removals, Deprecations, Restrictions:`
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## 📍 **Remove the Windows 32-bit x86 Port (JEP 479)**
+## 📍 **Deprecate the 32-bit x86 Port for Removal (JEP 501)**
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## 📍 **Permanently Disable the Security Manager (JEP 486)**
 
+- #### Security Manager API was deprecated in JDK 17, and JVM was made to issue warnings in case Security Manager was enabled.
+- #### The API will be removed completely in the future releases.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## 📍 **ZGC: Remove the Non-Generational Mode (JEP 490)**
 
-## 📍 **Deprecate the 32-bit x86 Port for Removal (JEP 501)**
+#### The Z Garbage Collector (ZGC) is a scalable, low-latency garbage collector.
+
+### `java -XX:+UseZGC`
+### `java -XX:+UseZGC -XX:-ZGenerational`
+
+#### The ZGenerational flag is now deprecated, and the warning message will be displayed if it's used
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## 📍 **Prepare to Restrict the Use of JNI (JEP 472)**
 
+- #### Issue warnings about uses of the Java Native Interface (JNI) and adjust the Foreign Function & Memory (FFM) API to issue warnings in a consistent manner.
+- #### JNI Will Require Explicit Approval in Future JDK Versions
+- #### Developers must enable JNI manually using:
+  `java --enable-native-access=ALL-UNNAMED`\
+  or for specific modules:\
+  `java --enable-native-access=my.module`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## 📍 **Warn upon Use of Memory-Access Methods in sun.misc.Unsafe (JEP 498)**
 
+- #### Methods in `sun.misc.Unsafe` were deprecated for removal and now, a runtime warning is issued when memory-access methods are used
+- #### Standard replacements are now available:
+  - `VarHandle` API (JDK 9) → For safe on-heap memory access.
+  - `MemorySegment` API (JDK 22) → For safe off-heap memory access.
+- #### How to Detect & Fix sun.misc.Unsafe Usage
+  - `java --sun-misc-unsafe-memory-access=warn`
 
-# Don't wait, try out JDK 24 now! 🎉 ☕️
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+# Don't wait, try out `JDK 24` now! 🎉 ☕️
 
 <br>
 <br>
